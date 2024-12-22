@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caesar Cipher</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Encode/Decode</h1>
+
+
+        <form action="/" method="post">
+
+            <div class="form-group">
+                <label for="direction">Choose an action:</label>
+                <select name="direction" id="direction" required>
+                    <option value="encode">Encode</option>
+                    <option value="decode">Decode</option>
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label for="text">Enter your message:</label>
+                <textarea name="text" id="text" rows="4" required></textarea>
+            </div>
+
+
+            <div class="form-group">
+                <label for="shift">Enter shift amount:</label>
+                <input type="number" name="shift" id="shift" min="1" max="25" required>
+            </div>
+
+
+            <button type="submit" class="btn">Submit</button>
+        </form>
+
+
+        {% if result is not none %}
+        <div class="result">
+            <h2>Result:</h2>
+            <p><strong>Original Text:</strong> {{ original_text }}</p>
+            <p><strong>Action:</strong> {{ direction }}</p>
+            <p><strong>Result:</strong> <span class="output">{{ result }}</span></p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
